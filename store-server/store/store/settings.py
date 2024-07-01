@@ -13,23 +13,30 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+#Хранит путь до нашей папки с проектом, в даьлнейшем будем использовать эту переменную и добавлять к ней кусок пути до файла.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+#Обеспечивает целостность передачи файлов между серверами и клиентами и он секретный!!!
 SECRET_KEY = 'django-insecure-vb3aqz@&ojg_p3f9s9+t&u+98+8geg^#c%fth@fg=r(x=)8nbo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#Перменная, помогающая дебажить наш проект.
+#Когда проект выгружен на продакшн, значение переменной должно быть False!!!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#Переменная, которая отвечает за доступность проекта по определенному домену.
+#Чаще всего оставляют значение "*"
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
-
+#Предустановленые приложения в проекте.
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+#Промежуточные слои, они помогают нам, например, при запуске проекта.
+#Они помогают не изобретать велосипед и не переносить от проекта к проекту одно и то же.
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,6 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+#Файл urlds.py
 ROOT_URLCONF = 'store.urls'
 
 TEMPLATES = [
@@ -67,12 +77,13 @@ TEMPLATES = [
     },
 ]
 
+#wsgi.py и все в нем о нем
 WSGI_APPLICATION = 'store.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+#Информация о базе данных, которая используется в проекте
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -83,7 +94,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
+#Набор правил для валидации паролей: минимум 8 символов, без повторений и тп
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -102,11 +113,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
-
+#Язык проекта
 LANGUAGE_CODE = 'en-us'
-
+#Временная зона
 TIME_ZONE = 'UTC'
 
+#Переменные для локализации проекта на языки
 USE_I18N = True
 
 USE_TZ = True
@@ -114,10 +126,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+#переменная с расположением статических файлов, таких как скрипты стилей и разметки, картники и тп
 STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
+#Вернемся чуть позже
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
