@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
+    'django_extensions',
 ]
 
 #Промежуточные слои, они помогают нам, например, при запуске проекта.
