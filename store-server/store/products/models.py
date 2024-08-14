@@ -14,7 +14,7 @@ class ProductCategory(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=256, unique=True)
     description = models.TextField()
-    price = models.DecimalField(max_digits=9999, decimal_places=9)
+    price = models.DecimalField(max_digits=5, decimal_places=0)
     #Количество товаров на складе
     quontity = models.PositiveIntegerField(default=0)
     image = models.ImageField(upload_to='products_images')
